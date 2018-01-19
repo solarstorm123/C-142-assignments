@@ -110,10 +110,10 @@ void display(){                   //displays the elements of linked list.
 };
 int main(){
     linkedList s;              //create a linked list named s.
-for(int i=1;i<11;i++){
+for(int i=1;i<11;i++){         //adding elements to the node.
     s.addNode(i);
 }
-s.display();
+s.display();                   //performing various functions defined above.
 s.deleteNode();
 s.display();
 s.deleteNodeAt(3);
