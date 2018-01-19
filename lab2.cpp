@@ -1,34 +1,37 @@
 #include<iostream>
 using namespace std;
 
+//data structure of node.
 struct node{
-int data;
+int data;             //node has two components , one for storing data and other for linking it to other nodes.
 node*next;
 };
 
+//data structure of linked list.
 class linkedList{
-private:
+private:            //can be accessed only through member functions.
     node*head;
     node*tail;
 public:
+    //constructor i.e. initialization of head and tail.
     linkedList(){
     head=NULL;
     tail=NULL;
     }
 
-int n=0;
+int n=0;                     //will be used to count the number the nodes.
 
-void addNode(int a){
+void addNode(int a){         //function to add a node.
 	node*temp=new node;
 
-    if (head==NULL){
+    if (head==NULL){         //for adding the first node.
 	head=temp;
     tail=temp;
     temp->data=a;
     temp->next=NULL;
 
 	}
-	else{
+	else{                  //for adding subsequent nodes.
 		node*temp=new node;
 		temp->data=a;
 		temp->next=NULL;
@@ -36,10 +39,10 @@ void addNode(int a){
 		tail=temp;
 	}
 
-	n++;
+	n++;                 //adds one to the value of n every time a node is added and similarly substract one in the following functions.
 }
 
-void insertAt(int pos, int data){
+void insertAt(int pos, int data){           //insert node at any valid position.
     if (pos==n+1){
         addNode(data);
         n++;
@@ -60,7 +63,7 @@ void insertAt(int pos, int data){
     }
     else{cout<<"invalid entry";}
 }
-void deleteNode(){
+void deleteNode(){                     //delete the last node.
     node*temp=head;
     while(temp->next!=tail){
         temp=temp->next;
@@ -71,7 +74,7 @@ void deleteNode(){
     tail->next=NULL;
     n--;
 }
-void deleteNodeAt(int pos){
+void deleteNodeAt(int pos){          //delete node any given position
 
 if (pos<n){
 node*temp=head;
@@ -97,7 +100,7 @@ void countItems(){
 cout<<"the number of elements are :"<<n<<endl;
 }
 
-void display(){
+void display(){                   //displays the elements of linked list.
 		node*temp=head;
 		for (node* temp=head; temp!=NULL; temp=temp->next){
 			cout << temp->data << "->";
@@ -106,7 +109,7 @@ void display(){
 	}
 };
 int main(){
-    linkedList s;
+    linkedList s;              //create a linked list named s.
 for(int i=1;i<11;i++){
     s.addNode(i);
 }
