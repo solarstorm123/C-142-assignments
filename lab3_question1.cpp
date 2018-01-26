@@ -1,9 +1,11 @@
-
 #include<iostream>
 using namespace std;
 
 class Node {
-
+/*
+ * Node class with a variable to store data and two pointers
+ * to link it to the next and the previous node
+ */
 	public:
 		int data;
 		Node* next;
@@ -16,15 +18,21 @@ class Node {
 		}
 };
 
-class doublyLinked {
-
+class DLList {
+/*
+ * Class for the double linked list data structure.
+ * The list is identified by head and tail, which point
+ * to the first and the last element of the list respectively.
+ * A integer variable named size stores the number of
+ * elements of the linked list.
+ */
 	private:
 		Node* head;
 		Node* tail;
 		int size;
 
 	public:
-		doublyLinked() {				// Default constructor for doublyLinked
+		DLList() {				// Default constructor for DLList
 			head = NULL;		// initializes the list with both
 			tail = NULL;		// head and tail pointing to NULL
 			size = 0;			// and size equal to zero.
@@ -40,8 +48,11 @@ class doublyLinked {
 		void display();				// displays the elements of the linked list
 };
 
-void doublyLinked::insert(int d) {
-
+void DLList::insert(int d) {
+/*
+ * Inserts a new Node containing the value given by d
+ * at the end of the linked list.
+ */
 	Node* new_node = new Node;
 	new_node->data = d;
 	new_node->next = NULL;
@@ -58,8 +69,11 @@ void doublyLinked::insert(int d) {
 	++size;							// Size of the linked list is increased by one.
 }
 
-Node* doublyList::getNode(int i) {
-
+Node* DLList::getNode(int i) {
+/*
+ * Function which returns a pointer to the ith node
+ * of the linked list.
+ */
 	if (i < 1 || i > size) {		// Checks if the value of i is sane.
 		cout << "Invalid element position." << endl;
 		return NULL;
@@ -86,8 +100,13 @@ Node* doublyList::getNode(int i) {
 	return p;
 }
 
-int doublyLinked::insertAt(int i, int d) {
-
+int DLList::insertAt(int i, int d) {
+/* 
+ * Inserts a Node with data=d at the ith position in the list.
+ * Returns 0 if the Node is successfully added. Returns -1 if
+ * the index is invalid.
+ * Makes use of the getNode function to make the code more readable.
+ */
 	if (i < 1 || i > size+1) {		// Checks if the given value if i is sane.
 		cout << "Invalid element position. No changes made to the list." << endl;
 		return -1;
@@ -118,8 +137,10 @@ int doublyLinked::insertAt(int i, int d) {
 	return 0;
 }
 
-void doublyLinked::remove() {
-
+void DLList::remove() {
+/* 
+ * Removes the last Node of the linked list.
+ */
 	if (size == 0) {		// Does nothing if the list is empty.
 		cout << "No elements in the list. Nothing to do." << endl;
 		return;
@@ -137,8 +158,12 @@ void doublyLinked::remove() {
 	--size;
 }
 
-int doublyLinked::removeAt(int i) {
-
+int DLList::removeAt(int i) {
+/*
+ * Removes the ith element of the list.
+ * Returns 0 if the removal is successful, Returns -1 if
+ * the value of i is invalid.
+ */
 	if (i < 1 || i > size) {
 		cout << "Invalid element position. No changes made to the list." << endl;
 		return -1;
@@ -162,13 +187,20 @@ int doublyLinked::removeAt(int i) {
 	return 0;
 }
 
-int doublyLinked::countItems() {
-
+int DLList::countItems() {
+/*
+ * Counts the number of Nodes in the linked list.
+ * As the length of the linked list is tracked with
+ * the "size" variable, the variable is simply returned
+ * to the parent function.
+ */
 	return size;
 }
 
-void doublyLinked::display() {
-
+void DLList::display() {
+/* 
+ * Displays all the elements of the linked list.
+ */
 	if (size == 0) {			// Prints error message if the list is empty.
 		cout << "There are no elements in the list. Nothing to do." << endl;
 	}
@@ -183,7 +215,7 @@ void doublyLinked::display() {
 }
 
 int main() {
-	doublyLinked list;
+	DLList list;
 	for(int i=0; i<10; ++i) {
 		list.insert(i);
 	}
