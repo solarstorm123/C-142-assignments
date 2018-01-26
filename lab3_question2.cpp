@@ -108,7 +108,7 @@ void display(){                   //displays the elements of linked list.
 		cout <<tail->data<<"-> NULL" << endl;
 	}
 
-void displayCheck(int q){
+void displayCheck(int q){       //to check that the circular linked list is formed.
     node*temp=head;
     for(int i=0;i<q;i++){
             cout<<temp->data<<"->";
