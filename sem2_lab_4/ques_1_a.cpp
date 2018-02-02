@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-class node{
-public:
+class node{      //node to store data and pointer to link to other nodes.     
+public:          
     int data;
     node*next;
 };
 
-class StackLL{
+class StackLL{   //            
 node*head;
 node*tail;
 public:
