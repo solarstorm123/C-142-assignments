@@ -1,3 +1,8 @@
+/*
+delete not included yet.
+contains random comments in between, they are used to test the code .
+*/
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
